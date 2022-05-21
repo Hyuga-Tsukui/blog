@@ -8,6 +8,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { socialLinks } from "./bio.module.css"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -37,20 +38,24 @@ const Bio = () => {
         layout="fixed"
         formats={["auto", "webp", "avif"]}
         src="../images/profile-pic.png"
-        width={50}
-        height={50}
+        width={60}
+        height={60}
         quality={95}
         alt="Profile picture"
       />
-      {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
+      <div>
+        <strong>{author.name}</strong>
+        <div>
+          <a href={`https://twitter.com/${social?.twitter}`}>
+            <StaticImage
+              className={socialLinks}
+              src="../images/twitter-icon.svg"
+              width={24}
+              height={24}
+            />
           </a>
-        </p>
-      )}
+        </div>
+      </div>
     </div>
   )
 }
