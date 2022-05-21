@@ -324,6 +324,20 @@ a:focus {
   border-radius: 100%;
 }
 
+.blog-post-card {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  background-color: #0e161b;
+  color: #9cd4f7;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.blog-post-card header h2 {
+  margin-top: 8px;
+  color: #fff;
+}
+
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
