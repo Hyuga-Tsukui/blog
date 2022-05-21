@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Chan Hyu`s Blog",
+    title: "Chan Hyu Logs",
     author: {
-      name: `Hyuga-Tsukui`,
+      name: `Chan Hyu`,
       summary: `ポケモンカードエンジョイ勢/\nWebエンジニア`,
     },
     description: "",

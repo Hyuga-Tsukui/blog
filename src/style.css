@@ -248,7 +248,15 @@ a:focus {
 }
 
 .global-header {
+  margin-top: 16px;
+  justify-content: center;
+  display: flex;
   margin-bottom: var(--spacing-12);
+}
+
+/* TODO globalやめたい*/
+.global-header a {
+  color: #fff;
 }
 
 .main-heading {
