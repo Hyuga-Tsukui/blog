@@ -55,7 +55,7 @@
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
   --color-primary: #005b99;
-  --color-text: #2e353f;
+  --color-text: #fff;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
   --color-heading-black: black;
@@ -339,6 +339,12 @@ a:focus {
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--spacing-0);
 }
 
 /* Media queries */
