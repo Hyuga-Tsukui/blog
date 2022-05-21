@@ -81,6 +81,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  background-color: #031f30;
 }
 
 footer {
@@ -241,14 +242,10 @@ a:focus {
 /* Custom classes */
 
 .global-wrapper {
-  margin: var(--spacing-0) auto;
-  max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  padding: var(--spacing-10) var(--spacing-10);
+  display: flex;
+  justify-content: center;
 }
-
-/* .global-wrapper[data-is-root-path="true"] .bio {
-  margin-bottom: var(--spacing-20);
-} */
 
 .global-header {
   margin-bottom: var(--spacing-12);
@@ -284,6 +281,27 @@ a:focus {
   font-family: var(--font-heading);
   text-decoration: none;
   font-size: var(--fontSize-2);
+}
+
+.bio-container {
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  background-color: #0e161b;
+  color: #9cd4f7;
+  max-height: calc(100vh - 50px);
+  width: 240px;
+  position: sticky;
+  top: 16px;
+}
+
+.bio-container p {
+  margin-top: 8px;
+}
+
+.bio-container strong {
+  color: #fff;
 }
 
 .bio {

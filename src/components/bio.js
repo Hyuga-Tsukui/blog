@@ -33,7 +33,7 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <>
+    <div className="bio-container">
       <div className="bio">
         <StaticImage
           className="bio-avatar"
@@ -72,7 +72,7 @@ const Bio = () => {
         </div>
       </div>
       <p>{author?.summary}</p>
-    </>
+    </div>
   )
 }
 

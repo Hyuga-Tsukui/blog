@@ -1,0 +1,10 @@
+.main-container {
+  border-radius: 8px;
+  padding: 16px;
+  margin-right: 24px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  background-color: #0e161b;
+  color: #9cd4f7;
+  width: 56rem;
+}

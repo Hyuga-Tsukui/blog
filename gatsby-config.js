@@ -3,7 +3,7 @@ module.exports = {
     title: "Chan Hyu`s Blog",
     author: {
       name: `Hyuga-Tsukui`,
-      summary: `Webエンジニア`,
+      summary: `ポケモンカードエンジョイ勢/\nWebエンジニア`,
     },
     description: "",
     social: {
