@@ -38,8 +38,8 @@ const Bio = () => {
         layout="fixed"
         formats={["auto", "webp", "avif"]}
         src="../images/profile-pic.png"
-        width={60}
-        height={60}
+        width={56}
+        height={56}
         quality={95}
         alt="Profile picture"
       />
