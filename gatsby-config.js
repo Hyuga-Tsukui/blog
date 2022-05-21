@@ -3,10 +3,12 @@ module.exports = {
     title: "Chan Hyu`s Blog",
     author: {
       name: `Hyuga-Tsukui`,
+      summary: `Webエンジニア`,
     },
     description: "",
     social: {
       twitter: `hy_twen`,
+      github: `Hyuga-Tsukui`,
     },
   },
   plugins: [

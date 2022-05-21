@@ -8,7 +8,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { socialLinks } from "./bio.module.css"
+import { socialLinks, socialLinkItem } from "./bio.module.css"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -21,6 +21,7 @@ const Bio = () => {
           }
           social {
             twitter
+            github
           }
         }
       }
@@ -32,31 +33,46 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.png"
-        width={56}
-        height={56}
-        quality={95}
-        alt="Profile picture"
-      />
-      <div>
-        <strong>{author.name}</strong>
+    <>
+      <div className="bio">
+        <StaticImage
+          className="bio-avatar"
+          layout="fixed"
+          formats={["auto", "webp", "avif"]}
+          src="../images/profile-pic.png"
+          width={56}
+          height={56}
+          quality={95}
+          alt="Profile picture"
+        />
         <div>
-          <a href={`https://twitter.com/${social?.twitter}`}>
-            <StaticImage
-              className={socialLinks}
-              src="../images/twitter-icon.svg"
-              width={24}
-              height={24}
-            />
-          </a>
+          <strong>{author.name}</strong>
+          <div className={socialLinks}>
+            <a
+              href={`https://twitter.com/${social?.twitter}`}
+              className={socialLinkItem}
+            >
+              <StaticImage
+                src="../images/twitter-icon.svg"
+                width={24}
+                height={24}
+              />
+            </a>
+            <a
+              href={`https://github.com/${social?.github}`}
+              className={socialLinkItem}
+            >
+              <StaticImage
+                src="../images/github-icon.svg"
+                width={24}
+                height={24}
+              />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+      <p>{author?.summary}</p>
+    </>
   )
 }
 
