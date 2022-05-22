@@ -3,7 +3,7 @@ import Bio from "./bio"
 
 export const SideMenu = () => {
   return (
-    <div>
+    <div className="sidemenu">
       <Bio />
     </div>
   )

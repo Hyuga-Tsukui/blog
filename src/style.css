@@ -365,6 +365,12 @@ a:focus {
   padding-bottom: var(--spacing-0);
 }
 
+.main-container {
+  margin-right: 24px;
+  color: #9cd4f7;
+  width: 56rem;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
@@ -376,4 +382,13 @@ a:focus {
   ol {
     list-style-position: inside;
   }
+  .sidemenu {
+    display: none;
+  }
+  .main-container {
+    margin: auto;
+  }
+  /* .global-wrapper {
+    flex-flow: column;
+  } */
 }
