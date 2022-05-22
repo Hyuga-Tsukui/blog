@@ -1,7 +1,7 @@
 ---
 title: Blogはじめました
 date: "2022-05-22"
-description: "Gatsby.jsでのブログ構築"
+description: "Qita、Zenn やらに投稿をすることはあったけどどうしても一定の質を求めちゃうっていう話　Gatsby.jsでのブログ構築編"
 ---
 
 ## Qita、Zenn やらに投稿をすることはあったけどどうしても一定の質を求めちゃうっていう話
@@ -31,3 +31,8 @@ React だと Next.js or Gatsby.js ってことになるらしい（ほかもあ�
 - 記事カテゴリ
 - 検索
 - TS 化（仕事ではもっぱら TS なので、辛い
+
+## 参考にさせていただいた記事
+
+- [Tutorial: Learn how Gatsby works](https://www.gatsbyjs.com/docs/tutorial/)
+- [Gatsby で技術ブログを作る際の知見](https://kimuson.dev/blog/gatsby/gatsby-blog/)
