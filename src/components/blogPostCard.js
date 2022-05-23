@@ -11,7 +11,7 @@ export const BlogPostCard = props => {
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
-        <small>{postedDate}</small>
+        <small>{postedDate} 公開</small>
       </header>
       <section>
         <p itemProp="description">{description}</p>
