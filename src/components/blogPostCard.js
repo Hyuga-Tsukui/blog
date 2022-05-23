@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 export const BlogPostCard = props => {
   const { title, slug, postedDate, description } = props
   return (
-    <article className="blog-post-card">
+    <article className="card">
       <header>
         <h2>
           <Link to={slug} itemProp="url">
