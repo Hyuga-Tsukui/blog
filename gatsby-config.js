@@ -12,6 +12,12 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: [process.env.GATSBY_TRACKING_ID],
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -51,12 +57,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `G-962PD2SSG9`,
-      },
-    },
     // {
     //   resolve: `gatsby-plugin-feed`,
     //   options: {
