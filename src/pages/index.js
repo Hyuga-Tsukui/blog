@@ -26,22 +26,23 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location}>
       <Seo title="All posts" />
       {/* TODO ここちゃんとCSSにする */}
-      <ol style={{ listStyle: `none`, paddingTop: "0", marginTop: "0" }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <BlogPostCard
-                title={title}
-                slug={post.fields.slug}
-                postedDate={post.frontmatter.date}
-                description={post.frontmatter.description || post.excerpt}
-              />
-            </li>
-          )
-        })}
-      </ol>
+      <div className="post-list">
+        <ol style={{ listStyle: `none`, paddingTop: "0", marginTop: "0" }}>
+          {posts.map(post => {
+            const title = post.frontmatter.title || post.fields.slug
+            return (
+              <li key={post.fields.slug}>
+                <BlogPostCard
+                  title={title}
+                  slug={post.fields.slug}
+                  postedDate={post.frontmatter.date}
+                  description={post.frontmatter.description || post.excerpt}
+                />
+              </li>
+            )
+          })}
+        </ol>
+      </div>
     </Layout>
   )
 }

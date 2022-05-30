@@ -256,6 +256,11 @@ a:focus {
   padding: var(--spacing-4);
 }
 
+.main-container .post-list ul,
+ol {
+  padding: var(--spacing-0);
+}
+
 .sidemenu {
   grid-area: sidemenu;
   padding: var(--spacing-4);
