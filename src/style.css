@@ -300,11 +300,6 @@ a:focus {
     rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
-.card a {
-  color: var(--color-text-dark);
-  text-decoration: none;
-}
-
 .bio-container {
   max-height: calc(100vh - 50px);
   width: 240px;
