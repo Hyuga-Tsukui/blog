@@ -5,17 +5,20 @@ export const BlogPostCard = props => {
   const { title, slug, postedDate, description } = props
   return (
     <article className="card">
-      <Link to={slug} itemProp="url">
-        <header>
-          <h2>
+      <header>
+        <h2>
+          <Link to={slug} itemProp="url">
             <span itemProp="headline">{title}</span>
-          </h2>
-          <small>{postedDate} 公開</small>
-        </header>
-        <section>
-          <p itemProp="description">{description}</p>
-        </section>
-      </Link>
+          </Link>
+        </h2>
+        <small>{postedDate} 公開</small>
+      </header>
+      <section>
+        <p itemProp="description">{description}</p>
+        <small>
+          <Link to={slug}>全文を読む</Link>
+        </small>
+      </section>
     </article>
   )
 }
