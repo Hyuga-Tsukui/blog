@@ -244,6 +244,12 @@ a:focus {
   display: grid;
   gap: 24px;
   grid-template-areas: "header" "sidemenu" "main" "footer";
+  grid-template-columns:
+    /* [header-start] */
+    /* [header-end] */
+    [main-start] minmax(300px, 670px)
+    [main-end];
+  /* minmax(0, 40px) */
 }
 
 .global-header {
@@ -366,6 +372,7 @@ ol {
 @media (min-width: 1280px) {
   .layout {
     grid-template-areas: "header header" "main sidemenu" "footer footer";
+    grid-template-columns: [main-start]1fr [main-end];
   }
   .sidemenu {
     display: block;
