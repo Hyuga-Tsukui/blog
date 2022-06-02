@@ -7,7 +7,7 @@ import { BlogPostCard } from "../components/blogPostCard"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.allMdx.nodes
 
   if (posts.length === 0) {
     return (
@@ -29,12 +29,12 @@ const BlogIndex = ({ data, location }) => {
       <div className="post-list">
         <ol style={{ listStyle: `none`, paddingTop: "0", marginTop: "0" }}>
           {posts.map(post => {
-            const title = post.frontmatter.title || post.fields.slug
+            const title = post.frontmatter.title || post.slug
             return (
-              <li key={post.fields.slug}>
+              <li key={post.slug}>
                 <BlogPostCard
                   title={title}
-                  slug={post.fields.slug}
+                  slug={post.slug}
                   postedDate={post.frontmatter.date}
                   description={post.frontmatter.description || post.excerpt}
                 />
@@ -56,12 +56,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
-        fields {
-          slug
-        }
+        slug
         frontmatter {
           date(formatString: "YYYY年MM月DD日")
           title
