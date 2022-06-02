@@ -21,6 +21,7 @@ type Scalars = {
   Date: string;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: never;
+  GatsbyImageData: any;
 };
 
 
@@ -265,6 +266,7 @@ type Site = Node & {
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly jsxRuntime: Maybe<Scalars['String']>;
   readonly trailingSlash: Maybe<Scalars['String']>;
+  readonly graphqlTypegen: Maybe<Scalars['Boolean']>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
@@ -500,7 +502,7 @@ type Potrace = {
 type ImageSharp = Node & {
   readonly fixed: Maybe<ImageSharpFixed>;
   readonly fluid: Maybe<ImageSharpFluid>;
-  readonly gatsbyImageData: Scalars['JSON'];
+  readonly gatsbyImageData: Scalars['GatsbyImageData'];
   readonly original: Maybe<ImageSharpOriginal>;
   readonly resize: Maybe<ImageSharpResize>;
   readonly id: Scalars['ID'];
@@ -629,6 +631,7 @@ type ImageSharpFluid = {
   readonly presentationWidth: Scalars['Int'];
   readonly presentationHeight: Scalars['Int'];
 };
+
 
 type ImagePlaceholder =
   | 'dominantColor'
@@ -819,6 +822,7 @@ type Query_siteArgs = {
   pathPrefix: Maybe<StringQueryOperatorInput>;
   jsxRuntime: Maybe<StringQueryOperatorInput>;
   trailingSlash: Maybe<StringQueryOperatorInput>;
+  graphqlTypegen: Maybe<BooleanQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
@@ -954,7 +958,7 @@ type Query_allMdxArgs = {
 type Query_imageSharpArgs = {
   fixed: Maybe<ImageSharpFixedFilterInput>;
   fluid: Maybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData: Maybe<JSONQueryOperatorInput>;
+  gatsbyImageData: Maybe<GatsbyImageDataQueryOperatorInput>;
   original: Maybe<ImageSharpOriginalFilterInput>;
   resize: Maybe<ImageSharpResizeFilterInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -1102,7 +1106,7 @@ type ImageSharpFilterListInput = {
 type ImageSharpFilterInput = {
   readonly fixed: Maybe<ImageSharpFixedFilterInput>;
   readonly fluid: Maybe<ImageSharpFluidFilterInput>;
-  readonly gatsbyImageData: Maybe<JSONQueryOperatorInput>;
+  readonly gatsbyImageData: Maybe<GatsbyImageDataQueryOperatorInput>;
   readonly original: Maybe<ImageSharpOriginalFilterInput>;
   readonly resize: Maybe<ImageSharpResizeFilterInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -1137,6 +1141,13 @@ type ImageSharpFluidFilterInput = {
   readonly originalName: Maybe<StringQueryOperatorInput>;
   readonly presentationWidth: Maybe<IntQueryOperatorInput>;
   readonly presentationHeight: Maybe<IntQueryOperatorInput>;
+};
+
+type GatsbyImageDataQueryOperatorInput = {
+  readonly eq: Maybe<Scalars['GatsbyImageData']>;
+  readonly ne: Maybe<Scalars['GatsbyImageData']>;
+  readonly in: Maybe<ReadonlyArray<Maybe<Scalars['GatsbyImageData']>>>;
+  readonly nin: Maybe<ReadonlyArray<Maybe<Scalars['GatsbyImageData']>>>;
 };
 
 type ImageSharpOriginalFilterInput = {
@@ -1990,6 +2001,7 @@ type SiteFieldsEnum =
   | 'pathPrefix'
   | 'jsxRuntime'
   | 'trailingSlash'
+  | 'graphqlTypegen'
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -2127,6 +2139,7 @@ type SiteFilterInput = {
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly jsxRuntime: Maybe<StringQueryOperatorInput>;
   readonly trailingSlash: Maybe<StringQueryOperatorInput>;
+  readonly graphqlTypegen: Maybe<BooleanQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
