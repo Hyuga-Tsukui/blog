@@ -1,11 +1,24 @@
-import type { GatsbyConfig } from "gatsby"
+import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `My First Gatsby Site`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `ChanHyu/blog`,
+    siteUrl: `https://www.chan-hyu.jp`,
   },
-  plugins: [],
-}
+  plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-typegen",
+    "gatsby-plugin-mdx",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: `${__dirname}/blog`,
+      },
+    },
+  ],
+};
 
-export default config
+export default config;
