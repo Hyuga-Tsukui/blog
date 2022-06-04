@@ -18,6 +18,14 @@ const config: GatsbyConfig = {
         path: `${__dirname}/blog`,
       },
     },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: [
+          "G-0T0RG9HQ7P", // Google Analytics / GA
+        ]
+      }
+    }
   ],
 };
 
