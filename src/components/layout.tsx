@@ -7,8 +7,8 @@ import {
   navLinkItem,
   navLinkText,
   siteTitle,
+  // @ts-ignore
 } from "./layout.module.css";
-// @ts-ignore
 
 type Props = {
   pageTitle: string;
@@ -50,6 +50,25 @@ export const Layout: FC<Props> = (props) => {
         <h1 className={heading}>{pageTitle}</h1>
         {children}
       </main>
+      <footer>
+        <p>
+          <small>
+            ©　Hyuga-Tsukui created-at 2022
+            <br />
+            このサイトはGoogle Analyticsを使用しています。
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://policies.google.com/technologies/partner-sites?hl=ja"
+            >
+              詳しく見る
+            </a>
+          </small>
+        </p>
+        <p>
+          <small></small>
+        </p>
+      </footer>
     </div>
   );
 };
