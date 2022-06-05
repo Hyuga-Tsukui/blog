@@ -25,6 +25,17 @@ const config: GatsbyConfig = {
           "G-0T0RG9HQ7P", // Google Analytics / GA
         ]
       }
+    },
+    `gatsby-remark-images`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`
+          }
+        ]
+      }
     }
   ],
 };
