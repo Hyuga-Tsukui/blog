@@ -2,7 +2,9 @@ import React, { FC } from "react";
 import { Layout } from "../../components/layout";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import MDXComponents from "../../components/MDXComponetns";
 type Props = {
   data: GatsbyTypes.BlogPostQuery;
 };
@@ -18,7 +20,9 @@ const BlogPost: FC<Props> = (props) => {
     <Layout pageTitle={data.mdx?.frontmatter?.title || "NON TITLE"}>
       <p>Posted: {data.mdx?.frontmatter?.date}</p>
       {image && <GatsbyImage image={image} alt={""} />}
-      <MDXRenderer>{data.mdx?.body || ""}</MDXRenderer>
+      <MDXProvider components={MDXComponents}>
+        <MDXRenderer>{data.mdx?.body || ""}</MDXRenderer>
+      </MDXProvider>
     </Layout>
   );
 };
