@@ -4,6 +4,10 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `ChanHyu/blog`,
     siteUrl: `https://www.chan-hyu.jp`,
+    social: {
+      twitter: `hy_twen`,
+      github: `Hyuga-Tsukui`,
+    },
   },
   plugins: [
     "gatsby-plugin-image",
