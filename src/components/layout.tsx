@@ -9,6 +9,7 @@ import {
   siteTitle,
   // @ts-ignore
 } from "./layout.module.css";
+import { StaticImage } from "gatsby-plugin-image";
 
 type Props = {
   pageTitle: string;
@@ -17,21 +18,28 @@ type Props = {
 export const Layout: FC<Props> = (props) => {
   const { pageTitle, children } = props;
 
-  const data = useStaticQuery(graphql`
-    query {
+  const data = useStaticQuery<GatsbyTypes.LayoutQuery>(graphql`
+    query Layout {
       site {
         siteMetadata {
           title
+          social {
+            twitter
+            github
+          }
         }
       }
     }
   `);
+
+  const social = data.site?.siteMetadata?.social;
+
   return (
     <div className={container}>
       <title>
-        {pageTitle} | {data.site.siteMetadata.title}
+        {pageTitle} | {data.site?.siteMetadata?.title}
       </title>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
+      <header className={siteTitle}>{data.site?.siteMetadata?.title}</header>
       <nav>
         <ul className={navLinks}>
           <li className={navLinkItem}>
@@ -43,6 +51,36 @@ export const Layout: FC<Props> = (props) => {
             <Link to="/about" className={navLinkText}>
               About
             </Link>
+          </li>
+          <li className={navLinkItem}>
+            <a
+              href={`https://twitter.com/${social?.twitter}`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <StaticImage
+                alt="My Twitter Link"
+                src="../images/twitter-icon.svg"
+                width={24}
+                height={24}
+                quality={95}
+              />
+            </a>
+          </li>
+          <li className={navLinkItem}>
+            <a
+              href={`https://github.com/${social?.github}`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <StaticImage
+                alt="My GitHub Link"
+                src="../images/github-icon.svg"
+                width={24}
+                height={24}
+                quality={95}
+              />
+            </a>
           </li>
         </ul>
       </nav>
