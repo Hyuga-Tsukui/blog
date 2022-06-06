@@ -79,7 +79,48 @@ const config: GatsbyConfig = {
         ]
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: ` query PluginSitemap {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }`,
+        resolveSiteUrl: (data: resolveSiteUrlType) => {
+          return data.site.siteMetadata.siteUrl
+        },
+        resolvePagePath: (page) => {
+          return page.path
+        },
+        resolvePages: (data) => {
+          return data.allSitePage.nodes
+        },
+        serialize: (page, {resolvePagePath}) => {
+          return {
+            url: resolvePagePath(page),
+            changefreq: 'daily',
+            priority: 0.7,
+          }
+        }
+      }
+    }
   ],
 };
+
+type resolveSiteUrlType = {
+  site: {
+    siteMetadata: {
+      siteUrl: string
+    }
+  }
+}
 
 export default config;
