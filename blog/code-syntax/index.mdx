@@ -9,14 +9,15 @@ date: "2022-06-05"
 - @mdx-js/react: "^1.6.22"
 
 今回技術ブログとしては必須のコードブロックのシンタックスハイライトを導入しました。
-[修正がまとまったPRです](https://github.com/Hyuga-Tsukui/blog/pull/12/files)
 
 ## 試したパターンと雑感
 
 今回2パターン試しており両方を紹介しますが、**導入したのはタイトルの通りprism-react-renderer**になります。
 
 ### 1. prism-react-rendererを利用する
-より確実にプラグインででレンダリングされるコードブロックのUIを制御できます、gatsby-remark-prismjsがCSSの上書きなどで制御するのに対し、prism-react-rendererは提供されたコンポーネントを利用して独自のコードブロックコンポーネントが書けます。
+[PR](https://github.com/Hyuga-Tsukui/blog/pull/12/files)
+
+プラグインででレンダリングされるコードブロックのUIを細かく制御できます、gatsby-remark-prismjsがCSSの上書きなどで制御するのに対し、prism-react-rendererは提供されたコンポーネントを利用して独自のコードブロックコンポーネントが書けます。
 
 公式ママ↓
 ```jsx
@@ -38,6 +39,8 @@ render((
 
 ### 2. gatsby-remark-prismjsを利用する
 
+[PR](https://github.com/Hyuga-Tsukui/blog/pull/18/files)
+
 pluginサポートが豊富で導入が楽です。手順は後述しますが導入するだけならpluginの設定だけで完結します。
 その分カスタマイズ性に難あり
 この難点は[こちらの方のブログ](https://kimuson.dev/blog/gatsby/replace_gatsby_blog_mdx/#:~:text=%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81-,%E3%82%B3%E3%83%BC%E3%83%89%E3%83%8F%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88,-Mdx%20%E3%81%B8%E3%81%AE)が非常に参考になります。
@@ -49,7 +52,7 @@ pluginサポートが豊富で導入が楽です。手順は後述しますが�
 さらっとまとめると、**MDXはMarkdownのスーパセットで、文書内にJSXを記述することができます。**
 
 そのため、各種Markdownの構文はいずれもJSXコンポーネントで表現され独自のカスタムコンポーネントをインポートし利用することも可能で、
-コードブロックを示す **```**は<Pre/>コンポーネントで[表現](https://mdxjs.com/table-of-components/#:~:text=p%3E%0A%3C/%3E-,pre,-%60%60%60js%0Abacktick.fences)されます。
+コードブロックを示す **```**はPreコンポーネントで[表現](https://mdxjs.com/table-of-components/#:~:text=p%3E%0A%3C/%3E-,pre,-%60%60%60js%0Abacktick.fences)されます。
 
 prism-react-rendererはPrism.jsのシンタックスハイライトを利用したJSXコンポーネントを提供するライブラリです。
 MDXのJSXを利用できるという特性を活かし、preタグをprism-react-rendererで置き換える手法になります。 
