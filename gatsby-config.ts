@@ -23,8 +23,8 @@ const config: GatsbyConfig = {
       options: {
         trackingIds: [
           "G-0T0RG9HQ7P", // Google Analytics / GA
-        ]
-      }
+        ],
+      },
     },
     `gatsby-remark-images`,
     {
@@ -32,11 +32,53 @@ const config: GatsbyConfig = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-images`
+            resolve: `gatsby-remark-images`,
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `{
+          site {
+            siteMetadata {
+              title
+              siteUrl
+              description
+            }
           }
+        }`,
+        feeds: [
+          {
+            serialize: ({query: {site, allMdx}}) => {
+              return allMdx.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  date: node.frontmatter.date,
+                  url: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                  custom_elements: [{ "content:encoded": node.body }],
+                })
+              })
+            },
+            query: `{
+              allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+                nodes {
+                  frontmatter {
+                    date
+                    title
+                  }
+                  slug
+                }
+              }
+            }`,
+          output: "/rss.xml",
+          title: "ChanHyu/blog's RSS Feed",
+          match: "^/blog/",
+          },
         ]
-      }
-    }
+      },
+    },
   ],
 };
 
