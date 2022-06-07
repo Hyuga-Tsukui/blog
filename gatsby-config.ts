@@ -15,6 +15,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-typegen",
     "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-filesystem",
       options: {
