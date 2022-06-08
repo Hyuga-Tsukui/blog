@@ -6,10 +6,11 @@ import React from "react";
 interface Props {
   title?: string;
   description?: string;
+  link?: {rel: string, href: string}[]
 }
 
 const Seo: FC<Props> = (props) => {
-  const {title, description} = props;
+  const {title, description, link = []} = props;
   const { site } = useStaticQuery<GatsbyTypes.SeoQuery>(
     graphql`
       query Seo {
@@ -33,6 +34,7 @@ const Seo: FC<Props> = (props) => {
       htmlAttributes={{
         lang: "ja",
       }}
+      link={link}
       title={title || site?.siteMetadata?.title}
       meta={[
         {

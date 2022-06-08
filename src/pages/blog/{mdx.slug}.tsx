@@ -13,9 +13,11 @@ const BlogPost: FC<Props> = (props) => {
   const { data } = props;
 
   const title = data.mdx?.frontmatter?.title || "NON TITLE"
+  const canonical = data.mdx?.frontmatter?.canonical
+  const link = canonical? [{rel: "canonical", href: canonical}] : undefined
   return (
     <>
-      <Seo title={title} description={data.mdx?.frontmatter?.description}/>
+      <Seo title={title} description={data.mdx?.frontmatter?.description} link={link}/>
       <Layout pageTitle={title}>
         <p>Posted: {data.mdx?.frontmatter?.date}</p>
         <MDXProvider components={MDXComponents}>
@@ -33,6 +35,7 @@ export const query = graphql`
         title
         date(formatString: "MMMM D, YYYY")
         description
+        canonical
       }
       body
     }
