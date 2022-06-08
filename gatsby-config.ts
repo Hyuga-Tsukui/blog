@@ -4,6 +4,8 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `ChanHyu/blog`,
     siteUrl: `https://www.chan-hyu.jp`,
+    description: `Hyuga-Tsukuiの技術ブログ。備忘録。主に Web 開発関連の技術情報のアウトプットの場として用意しました。幅広く公開したいものは、Qita、Zennに投稿し、自分の中でまだ煮詰まっていないものや備忘録的なものはこちらに書く予定です。`,
+    author: `Hyuga-Tsukui`,
     social: {
       twitter: `hy_twen`,
       github: `Hyuga-Tsukui`,
