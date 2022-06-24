@@ -81,7 +81,6 @@ const config: GatsbyConfig = {
             }`,
           output: "/rss.xml",
           title: "ChanHyu/blog's RSS Feed",
-          match: "^/blog/",
           },
         ]
       },
