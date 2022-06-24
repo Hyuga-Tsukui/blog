@@ -9,6 +9,8 @@ const config: GatsbyConfig = {
     social: {
       twitter: `hy_twen`,
       github: `Hyuga-Tsukui`,
+      zenn: `dimdim1996`,
+      qita: `Hyuga-Tsukui`
     },
   },
   plugins: [
