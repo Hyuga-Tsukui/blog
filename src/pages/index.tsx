@@ -1,5 +1,6 @@
 import { HeadFC, PageProps, Link } from "gatsby";
 import { css } from "@emotion/react";
+import { ArticleCard } from "../components/ArticleCard";
 
 const pageStyles = {
   color: "#232129",
@@ -17,10 +18,6 @@ const postList = css`
   article {
     margin-bottom: 13px;
   }
-`;
-
-const articleStyle = css`
-  border: black 1px solid;
 `;
 
 const articles = [
@@ -47,25 +44,23 @@ const IndexPage: React.FC<PageProps> = () => {
           ))}
         </ul>
       </main>
+      <footer>
+        <p>
+          <small>
+            ©　Hyuga-Tsukui
+            <br />
+            このサイトはGoogle Analyticsを使用しています。
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://policies.google.com/technologies/partner-sites?hl=ja"
+            >
+              詳しく見る
+            </a>
+          </small>
+        </p>
+      </footer>
     </>
-  );
-};
-
-type ArticleCardProps = {
-  article: { title: string; postedAt: string };
-};
-
-/**
- * 記事ののサマリを表示したカード
- * @param param0
- * @returns
- */
-const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
-  return (
-    <article css={articleStyle}>
-      <time dateTime={article.postedAt}>{article.postedAt}</time>
-      <h2>{article.title}</h2>
-    </article>
   );
 };
 
