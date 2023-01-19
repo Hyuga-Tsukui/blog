@@ -1,12 +1,16 @@
+/** @jsx jsx */
+import { jsx, css } from "@emotion/react";
 import { HeadFC, PageProps, Link } from "gatsby";
-import { css } from "@emotion/react";
 import { ArticleCard } from "../components/ArticleCard";
+import React, { Fragment } from "react";
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
+const viewContainerStyles = css`
+  margin-top: 32px;
+  color: "#232129";
+  fontfamily: "-apple-system, Roboto, sans-serif, serif";
+  display: flex;
+  justify-content: center;
+`;
 
 const headerLogStyle = {
   fontSize: "2.25rem",
@@ -15,6 +19,7 @@ const headerLogStyle = {
 };
 
 const postList = css`
+  padding: 0;
   article {
     margin-bottom: 13px;
   }
@@ -29,22 +34,27 @@ const articles = [
   },
 ];
 
+const footerStyle = css`
+  display: flex;
+  justify-content: center;
+`;
+
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <>
+    <Fragment>
       <header>
         <Link style={headerLogStyle} to="/">
           ChanHyu/blog
         </Link>
       </header>
-      <main style={pageStyles}>
+      <main css={viewContainerStyles}>
         <ul css={postList}>
           {articles.map((item) => (
             <ArticleCard article={item} />
           ))}
         </ul>
       </main>
-      <footer>
+      <footer css={footerStyle}>
         <p>
           <small>
             ©　Hyuga-Tsukui
@@ -60,7 +70,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </small>
         </p>
       </footer>
-    </>
+    </Fragment>
   );
 };
 

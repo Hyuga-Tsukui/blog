@@ -1,7 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
-  jsxRuntime: "automatic",
+  // jsxRuntime: "automatic",
   siteMetadata: {
     title: `Hy.dev`,
     siteUrl: `https://www.yourdomain.tld`,
