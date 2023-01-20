@@ -22,16 +22,10 @@ const postList = css`
   article {
     margin-bottom: 13px;
   }
+  li {
+    list-style: none;
+  }
 `;
-
-const articles = [
-  { title: "Blogはじめました", postedAt: "2023/01/01" },
-  { title: "最高の椅子はこれだ！", postedAt: "2023/01/07" },
-  {
-    title: "最近Steamでローグライト×ビルディングにハマっている",
-    postedAt: "2023/01/10",
-  },
-];
 
 const footerStyle = css`
   display: flex;
@@ -47,6 +41,17 @@ const IndexPage: React.FC<PageProps> = () => {
           author
         }
       }
+      allMicrocmsBlog {
+        edges {
+          node {
+            id
+            title
+            blogId
+            content
+            publishedAt
+          }
+        }
+      }
     }
   `);
   return (
@@ -58,8 +63,16 @@ const IndexPage: React.FC<PageProps> = () => {
       </header>
       <main css={viewContainerStyles}>
         <ul css={postList}>
-          {articles.map((item) => (
-            <ArticleCard article={item} />
+          {data.allMicrocmsBlog.edges.map((item) => (
+            <li>
+              <ArticleCard
+                article={{
+                  title: item.node.title ?? "",
+                  postedAt: item.node.publishedAt ?? "",
+                  url: `/articles/${item.node.blogId}`,
+                }}
+              />
+            </li>
           ))}
         </ul>
       </main>

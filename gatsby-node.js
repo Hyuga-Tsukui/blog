@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               blogId
               content
-              createdAt
+              publishedAt
             }
           }
         }
