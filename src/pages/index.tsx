@@ -40,11 +40,12 @@ const footerStyle = css`
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
-  const data = useStaticQuery<Queries.MySiteMetaDataQueryQuery>(graphql`
-    query MySiteMetaDataQuery {
+  const data = useStaticQuery<Queries.MySiteMetaDataQuery>(graphql`
+    query MySiteMetaData {
       site {
         siteMetadata {
           title
+          author
         }
       }
     }
@@ -66,7 +67,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <footer css={footerStyle}>
         <p>
           <small>
-            ©　Hyuga-Tsukui
+            {`©　${data.site?.siteMetadata?.author}`}
             <br />
             このサイトはGoogle Analyticsを使用しています。
             <a
