@@ -1,4 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const config: GatsbyConfig = {
   // jsxRuntime: "automatic",
@@ -40,6 +43,18 @@ const config: GatsbyConfig = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: `${process.env.CMS_API_KEY}`,
+        serviceId: `${process.env.CMS_SERVICE_ID}`,
+        apis: [
+          {
+            endpoint: "blog",
+          },
+        ],
+      },
     },
   ],
 };
