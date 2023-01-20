@@ -1,8 +1,7 @@
-/** @jsx jsx */
-import { jsx, css } from "@emotion/react";
+import { css } from "@emotion/react";
 import { HeadFC, PageProps, Link, useStaticQuery, graphql } from "gatsby";
 import { ArticleCard } from "../components/ArticleCard";
-import React, { Fragment } from "react";
+import React from "react";
 
 const viewContainerStyles = css`
   margin-top: 32px;
@@ -51,7 +50,7 @@ const IndexPage: React.FC<PageProps> = () => {
     }
   `);
   return (
-    <Fragment>
+    <>
       <header>
         <Link style={headerLogStyle} to="/">
           {data.site?.siteMetadata?.title}
@@ -80,7 +79,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </small>
         </p>
       </footer>
-    </Fragment>
+    </>
   );
 };
 
