@@ -8,14 +8,6 @@ const headerLogStyle = {
   color: "darkslateblue",
 };
 
-const viewContainerStyles = css`
-  margin-top: 32px;
-  color: "#232129";
-  fontfamily: "-apple-system, Roboto, sans-serif, serif";
-  display: flex;
-  justify-content: center;
-`;
-
 const footerStyle = css`
   display: flex;
   justify-content: center;
@@ -43,7 +35,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
           {data.site?.siteMetadata?.title}
         </Link>
       </header>
-      <main css={viewContainerStyles}>{children}</main>
+      {children}
       <footer css={footerStyle}>
         <p>
           <small>

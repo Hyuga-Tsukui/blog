@@ -14,24 +14,34 @@ const postList = css`
   }
 `;
 
+const viewContainerStyles = css`
+  margin-top: 32px;
+  color: "#232129";
+  fontfamily: "-apple-system, Roboto, sans-serif, serif";
+  display: flex;
+  justify-content: center;
+`;
+
 const IndexPage: React.FC<PageProps<Queries.AllMicrocmsBlogQuery>> = ({
   data,
 }) => {
   return (
     <Layout>
-      <ul css={postList}>
-        {data.allMicrocmsBlog.edges.map((item) => (
-          <li>
-            <ArticleCard
-              article={{
-                title: item.node.title ?? "",
-                postedAt: item.node.publishedAt ?? "",
-                url: `/articles/${item.node.blogId}`,
-              }}
-            />
-          </li>
-        ))}
-      </ul>
+      <main css={viewContainerStyles}>
+        <ul css={postList}>
+          {data.allMicrocmsBlog.edges.map((item) => (
+            <li>
+              <ArticleCard
+                article={{
+                  title: item.node.title ?? "",
+                  postedAt: item.node.publishedAt ?? "",
+                  url: `/articles/${item.node.blogId}`,
+                }}
+              />
+            </li>
+          ))}
+        </ul>
+      </main>
     </Layout>
   );
 };

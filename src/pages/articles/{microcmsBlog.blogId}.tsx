@@ -1,19 +1,22 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { Layout } from "../../components/Layout";
 
 type Props = {
   data: { microcmsBlog: Queries.MicrocmsBlog };
 };
 
 const BlogPage: React.FC<Props> = ({ data }) => (
-  <>
-    <h1>{data.microcmsBlog.title}</h1>
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `${data.microcmsBlog.content}`,
-      }}
-    />
-  </>
+  <Layout>
+    <main>
+      <h1>{data.microcmsBlog.title}</h1>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `${data.microcmsBlog.content}`,
+        }}
+      />
+    </main>
+  </Layout>
 );
 
 export default BlogPage;
