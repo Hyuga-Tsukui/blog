@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/react";
-import { HeadFC, PageProps, Link } from "gatsby";
+import { HeadFC, PageProps, Link, useStaticQuery, graphql } from "gatsby";
 import { ArticleCard } from "../components/ArticleCard";
 import React, { Fragment } from "react";
 
@@ -40,11 +40,20 @@ const footerStyle = css`
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
+  const data = useStaticQuery<Queries.MySiteMetaDataQueryQuery>(graphql`
+    query MySiteMetaDataQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
   return (
     <Fragment>
       <header>
         <Link style={headerLogStyle} to="/">
-          ChanHyu/blog
+          {data.site?.siteMetadata?.title}
         </Link>
       </header>
       <main css={viewContainerStyles}>
