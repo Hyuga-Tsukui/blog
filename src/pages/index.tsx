@@ -30,7 +30,7 @@ const IndexPage: React.FC<PageProps<Queries.AllMicrocmsBlogQuery>> = ({
       <main css={viewContainerStyles}>
         <ul css={postList}>
           {data.allMicrocmsBlog.edges.map((item) => (
-            <li>
+            <li key={item.node.id}>
               <ArticleCard
                 article={{
                   title: item.node.title ?? "",
@@ -48,14 +48,21 @@ const IndexPage: React.FC<PageProps<Queries.AllMicrocmsBlogQuery>> = ({
 
 export const query = graphql`
   query AllMicrocmsBlog {
-    allMicrocmsBlog {
+    allMicrocmsBlog(sort: { publishedAt: DESC }) {
       edges {
         node {
-          id
-          title
           blogId
-          content
+          title
           publishedAt
+          id
+        }
+        previous {
+          blogId
+          title
+        }
+        next {
+          blogId
+          title
         }
       }
     }

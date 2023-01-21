@@ -1,16 +1,26 @@
+const path = require("path");
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const result = await graphql(
     `
       {
-        allMicrocmsBlog(sort: { fields: [createdAt], order: DESC }) {
+        allMicrocmsBlog(sort: { publishedAt: DESC }) {
           edges {
             node {
-              id
               blogId
-              content
+              title
               publishedAt
+              id
+            }
+            previous {
+              blogId
+              title
+            }
+            next {
+              blogId
+              title
             }
           }
         }
@@ -22,13 +32,15 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
 
-  // result.data.allMicrocmsPost.edges.forEach((post, index) => {
-  //   createPage({
-  //     path: post.node.id,
-  //     component: path.resolve("./src/pages/blog-post.js"),
-  //     context: {
-  //       slug: post.node.id,
-  //     },
-  //   });
-  // });
+  result.data.allMicrocmsBlog.edges.forEach((post, _) => {
+    createPage({
+      path: `/articles/${post.node.blogId}`,
+      component: path.resolve("./src/pages/articles/template.tsx"),
+      context: {
+        id: post.node.id,
+        previous: post.next, // https://github.com/Hyuga-Tsukui/hy_dev/issues/3
+        next: post.previous,
+      },
+    });
+  });
 };
