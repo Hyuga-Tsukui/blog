@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link, PageProps } from "gatsby";
 import { Layout } from "../../components/Layout";
+import { css } from "@emotion/react";
 
 type Props = {
   microcmsBlog: Queries.MicrocmsBlog;
@@ -16,14 +17,29 @@ const BlogPage: React.FC<PageProps<Props, PageContextType>> = ({
   data: { microcmsBlog },
   pageContext,
 }) => (
-  <>
-    <Layout>
-      <main>
+  <Layout>
+    <div
+      css={css`
+        max-width: 980px;
+        margin: auto;
+      `}
+    >
+      <main
+        css={css`
+          padding: 40px;
+        `}
+      >
         <h1>{microcmsBlog.title}</h1>
         <div
           dangerouslySetInnerHTML={{
             __html: `${microcmsBlog.content}`,
           }}
+          css={css`
+            img {
+              max-width: 900px;
+              height: auto;
+            }
+          `}
         />
         {/**TODO AriticleCardで統一したい */}
         {pageContext.next && (
@@ -35,8 +51,8 @@ const BlogPage: React.FC<PageProps<Props, PageContextType>> = ({
           </Link>
         )}
       </main>
-    </Layout>
-  </>
+    </div>
+  </Layout>
 );
 
 export default BlogPage;
