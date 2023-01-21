@@ -16,7 +16,6 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-emotion",
-    // "gatsby-plugin-google-gtag",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
     // {
@@ -56,12 +55,15 @@ const config: GatsbyConfig = {
         ],
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-google-gtag",
-    //   options: {
-    //     trackingIds: [`${process.env.GA_TRACKING_ID}`],
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: [`${process.env.GA_TRACKING_ID}`],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
   ],
 };
 
