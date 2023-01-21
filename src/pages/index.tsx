@@ -32,11 +32,9 @@ const IndexPage: React.FC<PageProps<Queries.AllMicrocmsBlogQuery>> = ({
           {data.allMicrocmsBlog.edges.map((item) => (
             <li key={item.node.id}>
               <ArticleCard
-                article={{
-                  title: item.node.title ?? "",
-                  postedAt: item.node.publishedAt ?? "",
-                  url: `/articles/${item.node.blogId}`,
-                }}
+                title={item.node.title ?? ""}
+                postedAt={item.node.publishedAt ?? ""}
+                url={`/articles/${item.node.blogId}`}
               />
             </li>
           ))}

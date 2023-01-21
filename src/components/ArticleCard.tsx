@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import dayjs from "dayjs";
 import { Link } from "gatsby";
 import React from "react";
 
@@ -9,21 +10,21 @@ const articleStyle = css`
 `;
 
 type Props = {
-  article: { title: string; postedAt: string; url: string };
+  title: string;
+  postedAt: string;
+  url: string;
 };
 
 /**
  * 記事ののサマリを表示したカード
- * @param param0
- * @returns
  */
-export const ArticleCard: React.FC<Props> = ({ article }) => {
+export const ArticleCard: React.FC<Props> = ({ title, postedAt, url }) => {
   return (
     <article css={articleStyle}>
       <small>
-        <time dateTime={article.postedAt}>{article.postedAt}</time>
+        <time dateTime={postedAt}>{dayjs(postedAt).format("YYYY/MM/DD")}</time>
       </small>
-      <h2>{article.title}</h2>
+      <h2>{title}</h2>
       <Link
         css={css`
           position: absolute;
@@ -32,7 +33,7 @@ export const ArticleCard: React.FC<Props> = ({ article }) => {
           width: 100%;
           height: 100%;
         `}
-        to={article.url}
+        to={url}
       />
     </article>
   );
