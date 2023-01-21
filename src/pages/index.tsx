@@ -6,7 +6,7 @@ import { Layout } from "../components/Layout";
 
 const postList = css`
   padding: 0;
-  article {
+  section {
     margin-bottom: 13px;
   }
   li {

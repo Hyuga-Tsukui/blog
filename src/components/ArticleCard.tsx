@@ -4,7 +4,9 @@ import { Link } from "gatsby";
 import React from "react";
 
 const articleStyle = css`
-  border: black 1px solid;
+  background-color: #757575;
+  border-radius: 5px;
+  color: white;
   padding: 16px;
   position: relative;
 `;
@@ -20,7 +22,7 @@ type Props = {
  */
 export const ArticleCard: React.FC<Props> = ({ title, postedAt, url }) => {
   return (
-    <article css={articleStyle}>
+    <section css={articleStyle}>
       <small>
         <time dateTime={postedAt}>{dayjs(postedAt).format("YYYY/MM/DD")}</time>
       </small>
@@ -35,6 +37,6 @@ export const ArticleCard: React.FC<Props> = ({ title, postedAt, url }) => {
         `}
         to={url}
       />
-    </article>
+    </section>
   );
 };

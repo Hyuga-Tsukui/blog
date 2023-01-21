@@ -1,11 +1,11 @@
 import { css } from "@emotion/react";
-import { graphql, HeadFC, Link, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 
 const headerLogStyle = {
   fontSize: "2.25rem",
   textDecoration: "none",
-  color: "darkslateblue",
+  color: "#FFCCBC",
 };
 
 const footerStyle = css`
@@ -29,7 +29,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
     }
   `);
   return (
-    <>
+    <div>
       <header>
         <Link style={headerLogStyle} to="/">
           {data.site?.siteMetadata?.title}
@@ -52,6 +52,6 @@ export const Layout: React.FC<Props> = ({ children }) => {
           </small>
         </p>
       </footer>
-    </>
+    </div>
   );
 };
