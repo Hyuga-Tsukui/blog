@@ -1,9 +1,10 @@
 import React from "react";
-import { graphql, Link, PageProps } from "gatsby";
+import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { Layout } from "../../components/Layout";
 import { css } from "@emotion/react";
 
 type Props = {
+  site: Queries.Site;
   microcmsBlog: Queries.MicrocmsBlog;
 };
 
@@ -41,15 +42,22 @@ const BlogPage: React.FC<PageProps<Props, PageContextType>> = ({
             }
           `}
         />
-        {/**TODO AriticleCardで統一したい */}
-        {pageContext.next && (
-          <Link to={`/articles/${pageContext.next.blogId}`}>次の記事</Link>
-        )}
-        {pageContext.previous && (
-          <Link to={`/articles/${pageContext.previous.blogId}`}>
-            前回の記事
-          </Link>
-        )}
+        <div
+          css={css`
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+          `}
+        >
+          {pageContext.previous && (
+            <Link to={`/articles/${pageContext.previous.blogId}`}>
+              前回の記事
+            </Link>
+          )}
+          {pageContext.next && (
+            <Link to={`/articles/${pageContext.next.blogId}`}>次の記事</Link>
+          )}
+        </div>
       </main>
     </div>
   </Layout>
@@ -59,6 +67,12 @@ export default BlogPage;
 
 export const query = graphql`
   query ($id: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
     microcmsBlog(id: { eq: $id }) {
       blogId
       title
@@ -66,3 +80,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head: HeadFC<Props, PageContextType> = ({ data }) => (
+  <title>{`${data.site.siteMetadata?.title} | ${data.microcmsBlog.title}`}</title>
+);
