@@ -1,6 +1,7 @@
 html {
   background-color: #212121;
   color: #ffff;
+  fontfamily: "-apple-system, Roboto, sans-serif, serif";
 }
 
 a {

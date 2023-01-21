@@ -4,11 +4,16 @@ import { Link } from "gatsby";
 import React from "react";
 
 const articleStyle = css`
-  background-color: #757575;
+  background: rgba(117, 117, 117, 0.5);
   border-radius: 5px;
   color: white;
   padding: 16px;
   position: relative;
+  max-width: 560px;
+  &:hover {
+    background: rgba(117, 117, 117, 1);
+  }
+  transition: 0.3s;
 `;
 
 type Props = {
@@ -26,7 +31,13 @@ export const ArticleCard: React.FC<Props> = ({ title, postedAt, url }) => {
       <small>
         <time dateTime={postedAt}>{dayjs(postedAt).format("YYYY/MM/DD")}</time>
       </small>
-      <h2>{title}</h2>
+      <h1
+        css={css`
+          font-size: 18px;
+        `}
+      >
+        {title}
+      </h1>
       <Link
         css={css`
           position: absolute;
