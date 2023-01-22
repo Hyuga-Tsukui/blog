@@ -1,7 +1,7 @@
 import React from "react";
-import { graphql, HeadFC, Link, PageProps } from "gatsby";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import { Layout } from "../../components/Layout";
-import { css } from "@emotion/react";
+import { PostDetailPresenter } from "../../components/PostDetailPresenter";
 
 type Props = {
   site: Queries.Site;
@@ -19,47 +19,12 @@ const BlogPage: React.FC<PageProps<Props, PageContextType>> = ({
   pageContext,
 }) => (
   <Layout>
-    <div
-      css={css`
-        max-width: 980px;
-        margin: auto;
-      `}
-    >
-      <main
-        css={css`
-          padding: 40px;
-        `}
-      >
-        <h1>{microcmsBlog.title}</h1>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `${microcmsBlog.content}`,
-          }}
-          css={css`
-            img {
-              max-width: 900px;
-              height: auto;
-            }
-          `}
-        />
-        <div
-          css={css`
-            display: flex;
-            justify-content: space-between;
-            padding: 40px;
-          `}
-        >
-          {pageContext.previous && (
-            <Link to={`/articles/${pageContext.previous.blogId}`}>
-              前回の記事
-            </Link>
-          )}
-          {pageContext.next && (
-            <Link to={`/articles/${pageContext.next.blogId}`}>次の記事</Link>
-          )}
-        </div>
-      </main>
-    </div>
+    <PostDetailPresenter
+      title={microcmsBlog.title ?? ""}
+      contentHtml={microcmsBlog.content ?? ""}
+      previous={pageContext.previous}
+      next={pageContext.next}
+    />
   </Layout>
 );
 

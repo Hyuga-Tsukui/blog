@@ -1,8 +1,8 @@
-import { css } from "@emotion/react";
 import { PageProps } from "gatsby";
 import queryString from "query-string";
 import React, { useEffect, useState } from "react";
 import { Layout } from "../../../components/Layout";
+import { PostDetailPresenter } from "../../../components/PostDetailPresenter";
 
 const DraftPage: React.FC<PageProps> = ({ location }) => {
   const { contentId, draftKey } = queryString.parse(location.search);
@@ -22,38 +22,10 @@ const DraftPage: React.FC<PageProps> = ({ location }) => {
   }
   return (
     <Layout>
-      <div
-        css={css`
-          max-width: 980px;
-          margin: auto;
-        `}
-      >
-        <main
-          css={css`
-            padding: 40px;
-          `}
-        >
-          <h1>{data.microcmsBlog.title}</h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `${data.microcmsBlog.content}`,
-            }}
-            css={css`
-              img {
-                max-width: 900px;
-                height: auto;
-              }
-            `}
-          />
-          <div
-            css={css`
-              display: flex;
-              justify-content: space-between;
-              padding: 40px;
-            `}
-          ></div>
-        </main>
-      </div>
+      <PostDetailPresenter
+        title={data.microcmsBlog.title}
+        contentHtml={data.microcmsBlog.content}
+      />
     </Layout>
   );
 };
