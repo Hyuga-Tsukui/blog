@@ -7,6 +7,7 @@ type PageContextType = {
   id: string;
   siteMetadata: Queries.SiteSiteMetadata;
   microcmsBlog: Queries.MicrocmsBlog;
+  content: string;
   previous: { blogId: string; title: string } | null;
   next: { blogId: string; title: string } | null;
 };
@@ -17,7 +18,7 @@ const BlogPage: React.FC<PageProps<undefined, PageContextType>> = ({
   <Layout>
     <PostDetailPresenter
       title={pageContext.microcmsBlog.title ?? ""}
-      contentHtml={pageContext.microcmsBlog.content ?? ""}
+      contentHtml={pageContext.content ?? ""}
       previous={pageContext.previous}
       next={pageContext.next}
     />

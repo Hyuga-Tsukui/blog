@@ -19,6 +19,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mdx-js/react": "^2.2.1",
+    "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.7",
     "gatsby": "^5.4.1",
     "gatsby-plugin-emotion": "^8.4.0",
@@ -31,6 +32,7 @@
     "gatsby-source-filesystem": "^5.4.0",
     "gatsby-source-microcms": "^3.0.0",
     "gatsby-transformer-sharp": "^5.4.0",
+    "highlight.js": "^11.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
