@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("./src/pages/articles/template.tsx"),
       context: {
         id: post.node.id,
-        siteMetaData: result.data.site.siteMetaData,
+        siteMetadata: result.data.site.siteMetadata,
         microcmsBlog: post.node,
         previous: post.next, // https://github.com/Hyuga-Tsukui/hy_dev/issues/3
         next: post.previous,
