@@ -9,7 +9,6 @@ const articleStyle = css`
   color: white;
   padding: 16px;
   position: relative;
-  max-width: 560px;
   &:hover {
     background: rgba(117, 117, 117, 1);
   }

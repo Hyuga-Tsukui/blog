@@ -7,7 +7,7 @@ import { Layout } from "../components/Layout";
 const postList = css`
   padding: 0;
   section {
-    margin-bottom: 13px;
+    margin: 13px auto;
   }
   li {
     list-style: none;
@@ -26,7 +26,11 @@ const IndexPage: React.FC<PageProps<Queries.AllMicrocmsBlogQuery>> = ({
   return (
     <Layout>
       <div css={articleListStyles}>
-        <main>
+        <main
+          css={css`
+            min-width: 60%;
+          `}
+        >
           <ul css={postList}>
             {data.allMicrocmsBlog.edges.map((item) => (
               <li key={item.node.id}>
