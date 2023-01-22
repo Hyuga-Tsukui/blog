@@ -1,27 +1,23 @@
 import React from "react";
-import { graphql, HeadFC, PageProps } from "gatsby";
+import { HeadFC, PageProps } from "gatsby";
 import { Layout } from "../../components/Layout";
 import { PostDetailPresenter } from "../../components/PostDetailPresenter";
 
-type Props = {
-  site: Queries.Site;
-  microcmsBlog: Queries.MicrocmsBlog;
-};
-
 type PageContextType = {
   id: string;
+  siteMetadata: Queries.SiteSiteMetadata;
+  microcmsBlog: Queries.MicrocmsBlog;
   previous: { blogId: string; title: string } | null;
   next: { blogId: string; title: string } | null;
 };
 
-const BlogPage: React.FC<PageProps<Props, PageContextType>> = ({
-  data: { microcmsBlog },
+const BlogPage: React.FC<PageProps<undefined, PageContextType>> = ({
   pageContext,
 }) => (
   <Layout>
     <PostDetailPresenter
-      title={microcmsBlog.title ?? ""}
-      contentHtml={microcmsBlog.content ?? ""}
+      title={pageContext.microcmsBlog.title ?? ""}
+      contentHtml={pageContext.microcmsBlog.content ?? ""}
       previous={pageContext.previous}
       next={pageContext.next}
     />
@@ -30,22 +26,6 @@ const BlogPage: React.FC<PageProps<Props, PageContextType>> = ({
 
 export default BlogPage;
 
-export const query = graphql`
-  query ($id: String) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    microcmsBlog(id: { eq: $id }) {
-      blogId
-      title
-      content
-    }
-  }
-`;
-
-export const Head: HeadFC<Props, PageContextType> = ({ data }) => (
-  <title>{`${data.site.siteMetadata?.title} | ${data.microcmsBlog.title}`}</title>
+export const Head: HeadFC<undefined, PageContextType> = ({ pageContext }) => (
+  <title>{`${pageContext.siteMetadata?.title} | ${pageContext.microcmsBlog.title}`}</title>
 );
