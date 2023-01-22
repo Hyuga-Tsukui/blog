@@ -1,7 +1,7 @@
 import React from "react";
 import { HeadFC, PageProps } from "gatsby";
-import { Layout } from "../../components/Layout";
-import { PostDetailPresenter } from "../../components/PostDetailPresenter";
+import { Layout } from "./Layout";
+import { PostDetailPresenter } from "./PostDetailPresenter";
 
 type PageContextType = {
   id: string;
