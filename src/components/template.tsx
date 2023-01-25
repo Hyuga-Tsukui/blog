@@ -2,6 +2,7 @@ import React from "react";
 import { HeadFC, PageProps } from "gatsby";
 import { Layout } from "./Layout";
 import { PostDetailPresenter } from "./PostDetailPresenter";
+import { Seo } from "./Seo";
 
 type PageContextType = {
   id: string;
@@ -27,6 +28,13 @@ const BlogPage: React.FC<PageProps<undefined, PageContextType>> = ({
 
 export default BlogPage;
 
+// export const Head: HeadFC<undefined, PageContextType> = ({ pageContext }) => (
+//   <title>{`${pageContext.siteMetadata?.title} | ${pageContext.microcmsBlog.title}`}</title>
+// );
+
 export const Head: HeadFC<undefined, PageContextType> = ({ pageContext }) => (
-  <title>{`${pageContext.siteMetadata?.title} | ${pageContext.microcmsBlog.title}`}</title>
+  <Seo
+    pageTitle={pageContext.microcmsBlog.title!}
+    pathname={`/articles/${pageContext.microcmsBlog.blogId}`}
+  />
 );
