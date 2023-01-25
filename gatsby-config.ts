@@ -7,8 +7,10 @@ const config: GatsbyConfig = {
   // jsxRuntime: "automatic",
   siteMetadata: {
     title: "ChanHyu/blog",
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://chan-hyu.jp/",
     author: "Hyuga-Tsukui",
+    description: "",
+    twitterUsername: "hy_twen",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
