@@ -34,6 +34,7 @@ export const PostDetailPresenter: React.FC<Props> = ({
       <main>
         <h1>{title}</h1>
         <div
+          // rome-ignore lint/security/noDangerouslySetInnerHtml: SRC Rich Text Editor
           dangerouslySetInnerHTML={{
             __html: `${contentHtml}`,
           }}
