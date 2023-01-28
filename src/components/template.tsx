@@ -34,7 +34,8 @@ export default BlogPage;
 
 export const Head: HeadFC<undefined, PageContextType> = ({ pageContext }) => (
   <Seo
-    pageTitle={pageContext.microcmsBlog.title!}
+    pageTitle={pageContext.microcmsBlog.title!} // TODO maybe型を制御
     pathname={`/articles/${pageContext.microcmsBlog.blogId}`}
+    image={pageContext.microcmsBlog.eyecatch?.url!}
   />
 );

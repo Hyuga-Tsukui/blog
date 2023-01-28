@@ -4,9 +4,10 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata";
 type Props = {
   pageTitle?: string;
   pathname: string;
+  image?: string;
 };
 
-export const Seo: React.FC<Props> = ({ pageTitle, pathname }) => {
+export const Seo: React.FC<Props> = ({ pageTitle, pathname, image }) => {
   const {
     title: defaultTitle,
     description: defaultDescription,
@@ -26,12 +27,12 @@ export const Seo: React.FC<Props> = ({ pageTitle, pathname }) => {
     <>
       <title>{`${defaultTitle} | ${pageTitle}`}</title>
       <meta name="description" content={seo.description ?? undefined} />
-      {/* <meta name="image" content={seo.image} /> */}
+      <meta name="image" content={image} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title ?? undefined} />
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:description" content={seo.description ?? undefined} />
-      {/* <meta name="twitter:image" content={seo.image} /> */}
+      <meta name="twitter:image" content={image} />
       <meta name="twitter:creator" content={seo.twitterUsername ?? undefined} />
       <link
         rel="icon"
