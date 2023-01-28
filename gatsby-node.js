@@ -25,6 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
               eyecatch {
                 url
               }
+              description
             }
             previous {
               blogId

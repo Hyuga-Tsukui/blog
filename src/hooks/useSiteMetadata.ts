@@ -11,8 +11,18 @@ export const useSiteMetadata = () => {
           siteUrl
         }
       }
+      file(relativePath: {eq: "IMG_6986.jpeg"}) {
+        childImageSharp {
+          fixed(width: 125, height: 125) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `);
 
-  return data.site?.siteMetadata!;
+  return {
+    siteMetadata: data.site?.siteMetadata,
+    file: data.file,
+  };
 };

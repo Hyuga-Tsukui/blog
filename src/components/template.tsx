@@ -37,5 +37,6 @@ export const Head: HeadFC<undefined, PageContextType> = ({ pageContext }) => (
     pageTitle={pageContext.microcmsBlog.title!} // TODO maybe型を制御
     pathname={`/articles/${pageContext.microcmsBlog.blogId}`}
     image={pageContext.microcmsBlog.eyecatch?.url!}
+    description={pageContext.microcmsBlog.description!}
   />
 );

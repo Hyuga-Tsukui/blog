@@ -3,6 +3,7 @@ import { HeadFC, PageProps, graphql } from "gatsby";
 import { ArticleCard } from "../components/ArticleCard";
 import React from "react";
 import { Layout } from "../components/Layout";
+import { Seo } from "../components/Seo";
 
 const postList = css`
   padding: 0;
@@ -72,4 +73,4 @@ export const query = graphql`
 `;
 
 export default IndexPage;
-export const Head: HeadFC = () => <title>ChanHyu/blog</title>;
+export const Head: HeadFC = () => <Seo pageTitle="HOME" />;

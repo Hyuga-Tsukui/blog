@@ -9,7 +9,8 @@ const config: GatsbyConfig = {
     title: "ChanHyu/blog",
     siteUrl: "https://chan-hyu.jp/",
     author: "Hyuga-Tsukui",
-    description: "",
+    description:
+      "当ブログは、現役エンジニアである私Hyが不定期に更新する大体技術系を扱うブログです。Zennなどのプラットホームに投稿しないような記事が供養される場所です。",
     twitterUsername: "hy_twen",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -20,23 +21,23 @@ const config: GatsbyConfig = {
     "gatsby-plugin-emotion",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
-    // {
-    //   resolve: "gatsby-plugin-manifest",
-    //   options: {
-    //     icon: "src/images/icon.png",
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/IMG_6986.jpeg",
+      },
+    },
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     name: "images",
-    //     path: "./src/images/",
-    //   },
-    //   __key: "images",
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+      __key: "images",
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
