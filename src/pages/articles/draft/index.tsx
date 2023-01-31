@@ -5,7 +5,15 @@ import { Layout } from "../../../components/Layout";
 import { PostDetailPresenter } from "../../../components/PostDetailPresenter";
 
 const DraftPage: React.FC<PageProps> = ({ location }) => {
+  React.useEffect(() => {
+    const s = document.createElement("script");
+    s.setAttribute("src", "https://platform.twitter.com/widgets.js");
+    s.setAttribute("async", "true");
+    document.head.appendChild(s);
+  }, []);
+
   const { contentId, draftKey } = queryString.parse(location.search);
+  // rome-ignore lint/suspicious/noExplicitAny: <explanation>
   const [data, setData] = useState<any>(null);
   useEffect(() => {
     fetch(`${process.env.CMS_API_URL}${contentId}?draftKey=${draftKey}`, {

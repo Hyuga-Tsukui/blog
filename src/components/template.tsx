@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HeadFC, PageProps } from "gatsby";
 import { Layout } from "./Layout";
 import { PostDetailPresenter } from "./PostDetailPresenter";
@@ -15,16 +15,25 @@ type PageContextType = {
 
 const BlogPage: React.FC<PageProps<undefined, PageContextType>> = ({
   pageContext,
-}) => (
-  <Layout>
-    <PostDetailPresenter
-      title={pageContext.microcmsBlog.title ?? ""}
-      contentHtml={pageContext.content ?? ""}
-      previous={pageContext.previous}
-      next={pageContext.next}
-    />
-  </Layout>
-);
+}) => {
+  // TwitterJS
+  useEffect(() => {
+    const s = document.createElement("script");
+    s.setAttribute("src", "https://platform.twitter.com/widgets.js");
+    s.setAttribute("async", "true");
+    document.head.appendChild(s);
+  }, []);
+  return (
+    <Layout>
+      <PostDetailPresenter
+        title={pageContext.microcmsBlog.title ?? ""}
+        contentHtml={pageContext.content ?? ""}
+        previous={pageContext.previous}
+        next={pageContext.next}
+      />
+    </Layout>
+  );
+};
 
 export default BlogPage;
 
