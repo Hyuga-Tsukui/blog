@@ -33,6 +33,7 @@ const DraftPage: React.FC<PageProps> = ({ location }) => {
       <PostDetailPresenter
         title={data.microcmsBlog.title}
         contentHtml={data.microcmsBlog.content}
+        publishedAt={data.microcmsBlog.publishedAt}
       />
     </Layout>
   );
