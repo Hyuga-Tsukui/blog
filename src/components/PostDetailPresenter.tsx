@@ -29,10 +29,16 @@ export const PostDetailPresenter: React.FC<Props> = ({
       css={css`
         max-width: 980px;
         margin: auto;
+        padding: 32px 16px 0 16px;
       `}
     >
       <main>
         <h1>{title}</h1>
+        <hr
+          css={css`
+          opacity: 0.16
+        `}
+        />
         <div
           // rome-ignore lint/security/noDangerouslySetInnerHtml: SRC Rich Text Editor
           dangerouslySetInnerHTML={{
