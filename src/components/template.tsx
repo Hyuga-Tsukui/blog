@@ -37,10 +37,6 @@ const BlogPage: React.FC<PageProps<undefined, PageContextType>> = ({
 
 export default BlogPage;
 
-// export const Head: HeadFC<undefined, PageContextType> = ({ pageContext }) => (
-//   <title>{`${pageContext.siteMetadata?.title} | ${pageContext.microcmsBlog.title}`}</title>
-// );
-
 export const Head: HeadFC<undefined, PageContextType> = ({ pageContext }) => (
   <Seo
     pageTitle={pageContext.microcmsBlog.title!} // TODO maybe型を制御
