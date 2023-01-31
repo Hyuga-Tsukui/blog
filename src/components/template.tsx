@@ -27,6 +27,7 @@ const BlogPage: React.FC<PageProps<undefined, PageContextType>> = ({
     <Layout>
       <PostDetailPresenter
         title={pageContext.microcmsBlog.title ?? ""}
+        publishedAt={pageContext.microcmsBlog.publishedAt ?? ""}
         contentHtml={pageContext.content ?? ""}
         previous={pageContext.previous}
         next={pageContext.next}

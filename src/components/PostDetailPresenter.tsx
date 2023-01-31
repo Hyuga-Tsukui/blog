@@ -1,10 +1,12 @@
 import { css } from "@emotion/react";
+import dayjs from "dayjs";
 import { Link } from "gatsby";
 import React from "react";
 
 type Props = {
   title: string;
   contentHtml: string;
+  publishedAt: string;
   previous?: {
     blogId: string;
     title: string;
@@ -20,6 +22,7 @@ type Props = {
  */
 export const PostDetailPresenter: React.FC<Props> = ({
   title,
+  publishedAt,
   contentHtml,
   previous,
   next,
@@ -33,7 +36,20 @@ export const PostDetailPresenter: React.FC<Props> = ({
       `}
     >
       <main>
-        <h1>{title}</h1>
+        <h1
+          css={css`
+          font-size: 24px;
+        `}
+        >
+          {title}
+        </h1>
+        {/**TODO Chipに変更 */}
+        <small>
+          公開：
+          <time dateTime={publishedAt}>
+            {dayjs(publishedAt).format("YYYY/MM/DD HH:mm")}
+          </time>
+        </small>
         <hr
           css={css`
           opacity: 0.16
