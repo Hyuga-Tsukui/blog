@@ -56,6 +56,9 @@ export const PostDetailPresenter: React.FC<Props> = ({
         `}
         />
         <div
+          css={css`
+            line-height: 1.8;
+          `}
           // rome-ignore lint/security/noDangerouslySetInnerHtml: SRC Rich Text Editor
           dangerouslySetInnerHTML={{
             __html: `${contentHtml}`,
