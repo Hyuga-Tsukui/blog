@@ -21,6 +21,7 @@ const articleListStyles = css`
   justify-content: center;
 `;
 
+
 const IndexPage: React.FC<PageProps<Queries.AllMicrocmsBlogQuery>> = ({
   data,
 }) => {
