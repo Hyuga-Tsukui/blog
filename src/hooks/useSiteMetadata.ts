@@ -1,6 +1,13 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-export const useSiteMetadata = () => {
+type F = () => {
+  siteMetadata:
+    | Exclude<Queries.SiteMetaDataQuery["site"], null>["siteMetadata"]
+    | undefined;
+  file: Queries.SiteMetaDataQuery["file"];
+};
+
+export const useSiteMetadata: F = () => {
   const data = useStaticQuery<Queries.SiteMetaDataQuery>(graphql`
     query SiteMetaData {
       site {
@@ -11,7 +18,7 @@ export const useSiteMetadata = () => {
           siteUrl
         }
       }
-      file(relativePath: {eq: "IMG_6986.jpeg"}) {
+      file(relativePath: { eq: "IMG_6986.jpeg" }) {
         childImageSharp {
           fixed(width: 125, height: 125) {
             ...GatsbyImageSharpFixed
