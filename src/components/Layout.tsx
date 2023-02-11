@@ -39,7 +39,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
       <footer css={footerStyle}>
         <p>
           <small>
-            {`©　${data.site?.siteMetadata?.author}`}
+            {`©${data.site?.siteMetadata?.author}`}
             <br />
             このサイトはGoogle Analyticsを使用しています。
             <a
